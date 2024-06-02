@@ -1,17 +1,24 @@
 import React, { useState } from "react";
-// import logo from "./logo.svg";
 import "./App.css";
 
-
-
 function App() {
-  const [counter, changeCounter] = useState(1);
-  window.changeCounter = changeCounter
+  const [counter, setCounter] = useState(0);
+
+  const handleIncrement = () => {
+    setCounter(counter + 1);
+  };
+
+  const handleDecrement = () => {
+    setCounter(counter - 1);
+  };
 
   return (
     <div className="App">
-      <h1>{counter}</h1>
-      <h4>{counter}</h4>
+      <h1>Super cool counter</h1>
+      <h2>Current count is: {counter} </h2>
+
+      <button onClick={handleIncrement}>+1</button>
+      <button onClick={handleDecrement} disabled={counter <= 0}>-1</button>
     </div>
   )
 }
